@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+
+        <shudong>
+         我是内容   //内容被shudong模板替换
+        </shudong>
+    </div>
+
+    <template id="stark">
+        <div>
+           
+            <h1>
+                slot 开始
+            </h1>
+
+            <slot>
+                    
+            </slot>     //<slot>插槽作用就是在使用了自定义模板替换原先<shudong></shudong>的情况下，
+                        可以使得原先的内容显示而不被显示
+        </div>
+    </template>
+</body>
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            a:"aaa"
+        },
+        //自定义组件，相当于自定义了一个标签以及内容
+        components:{
+            "shudong":{
+                template:"#stark"
+            }
+        }
+    })
+</script>
+</html>

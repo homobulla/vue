@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>
+    
+</head>
+<body>
+    <div id="app">
+        <span :bindmsg="msg">{{msg}}</span>
+        <button @click="change()">更新</button>
+        <button @click="destroy()">销毁</button>
+        <input type="text" v-model="x">{{x}}
+        
+
+    </div>
+    <script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"homo-bulla",
+            x:1
+        },
+        beforeCreate(){
+
+        },
+        created(){
+
+        },
+        beforeount(){
+
+        },
+        mounted(){
+
+        },
+        beforeUpdata(){
+
+        },
+        updated(){
+
+        },
+        beforeDestroy(){
+
+        },
+        destroy(){
+
+        },
+        methods:{
+            change(){
+                vm.msg = "shudong";
+            }
+        }
+    })
+    </script>
+</body>
+</html>

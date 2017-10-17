@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app div {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+        }
+
+        #app .right {
+            left: 0;
+            top: 0;
+            background-color: blanchedalmond;
+        }
+
+        #app .red {
+            top: 0;
+            right: 0;
+            background-color: red;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app" v-red>
+        <div class="right" v-drag></div>
+        <div class="red" v-drag></div>
+    </div>
+    <script>
+        Vue.directive("drag", {
+            bind: function (el) {
+                // 当el触发onmosedowm事件的情况下
+                el.onmousedown = function (event) {
+
+                    var disX = event.clientX - this.offsetLeft;
+                    var disY = event.clientY - this.offsetTop;
+
+                    //存储两个值，鼠标当前位置减去鼠标当前拖拽div的left、top
+
+                    //鼠标移动时候改变left和top
+                    document.onmousemove = function (event) {
+                        // console.log(disX,disY);
+                        el.style.left = event.clientX - disX + "px";
+                        el.style.top = event.clientY - disY + "px";
+
+                        // 得到当前div的位置：用当前移动的位置减去存好距离
+
+                        // 会有一些bug，把el换成document会防止鼠标过快
+                    }
+                    document.onmouseup = function () {
+                        document.onmousemove = document.onmouseup = null;
+
+                        //会有一些bug，把el换成document回防止其他元素覆盖后的事件触发
+                    }
+                    // event.preventDefault();
+                    return false;
+                }
+            }
+        })
+        let vm = new Vue({
+            el: "#app",
+
+
+        })
+    </script>
+</body>
+
+</html>

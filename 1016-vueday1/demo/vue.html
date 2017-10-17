@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .fontSize{
+            font-size: 50px;
+            
+        }
+        .red{
+            color: red;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span class="fontSize" :class={"red":addClass}>{{master}}</span>
+    </div>
+    <script>
+        
+        let vm = new Vue({
+            el:"#app",
+            data:({
+                master:"vue 的第一个程序",
+                addClass:true
+            })
+        })
+    </script>
+</body>
+</html>

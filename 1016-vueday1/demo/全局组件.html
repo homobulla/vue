@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .h{
+        color: red;
+    }
+    </style>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <homo-bulla></homo-bulla>
+    </div>
+    <!-- https://cn.vuejs.org/v2/guide/components.html#局部注册 -->
+    <!--<table id="app2">
+            <homo></homo>
+        </table> 
+        像 <ul>、<ol>、<table>、<select> 这样的元素里允许包含的元素有限制，
+        而另一些像 <option> 这样的元素只能出现在某些特定元素的内部。
+        在自定义组件中使用这些受限制的元素时会导致一些问题 -->
+
+        <!-- 使用 is属性 -->
+        <!-- <table id="app2">
+            <tr is="homo">
+                <td is="homo"></td>
+            </tr>
+        </table>    -->
+        <table id="app2">
+            <homo></homo><homo></homo>
+            <homo></homo><homo></homo>
+        </table>     
+        
+    <script type="type/x-template" id="some-element">
+       <h3>homo</h3><h2>bulla</h2>
+    </script>
+    <script> 
+    //组件的全局注册
+    Vue.component('homo-bulla',{
+        template:`<h1 class="h">homo-bulla</h1>`
+    });
+    //创建实例
+    new Vue({
+        el:"#app"
+    })
+    new Vue({
+        el:"#app2",
+        components:{"homo":{
+            template:
+                `<h3>homo</h3>`}
+            
+        }
+        
+    })
+
+    </script>
+</body>
+</html>
