@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <router-link to="/" exact>首页</router-link>
+    
+    <router-link to="Homo">我的主页</router-link>
     <router-view/>
   </div>
 </template>
@@ -19,5 +22,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.router-link-active{
+  background-color:brown;
 }
 </style>

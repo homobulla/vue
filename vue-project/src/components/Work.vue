@@ -1,6 +1,6 @@
 <template>
     <div>
-            <h2>这是homobulla的个人主页！</h2>
+            <h2>hi stark</h2>
     </div>
 </template>
 
